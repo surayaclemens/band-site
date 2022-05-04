@@ -1,1 +1,186 @@
-/*# sourceMappingURL=bio.css.map */
+@font-face {
+  font-family: "Avenir";
+  src: url(../../assets/Font/AvenirNextLTPro-Regular.otf) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url(../../assets/Font/AvenirNextLTPro-Demi.otf) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir";
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+}
+
+p, q, address {
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #323232;
+  color: white;
+}
+.header__wordmark {
+  margin: 1rem;
+}
+
+.nav {
+  width: 100%;
+}
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0%;
+  font-size: 13px;
+}
+.nav__list-link {
+  color: #fafafa;
+  text-decoration: none;
+  width: 50%;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+.nav__list-link--active {
+  border-bottom: 3px solid white;
+  font-weight: 700;
+}
+.nav__list-link :hover {
+  border-bottom: 3px solid white;
+}
+.nav__list-link :visited {
+  color: white;
+}
+
+.hero {
+  background-image: url(../assets/Images/hero-bio.jpg);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-color: rgba(50, 50, 50, 0.5);
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.hero__title {
+  margin-left: 1rem;
+  color: white;
+  height: 100%;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+.about__title {
+  margin: 1.5rem 0 0 0;
+}
+.about__img {
+  height: auto;
+  width: auto;
+  margin: 1rem 0;
+}
+.about__quote {
+  margin: 0;
+}
+.about__quote-author {
+  margin-top: 1rem;
+}
+.about__subtitle {
+  margin: 0;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+.gallery__title {
+  margin: 16px 16px 0 16px;
+}
+.gallery__photo-container {
+  padding-bottom: 8px;
+  background-color: #fafafa;
+}
+.gallery__photo {
+  width: 90%;
+  height: auto;
+  margin: 8px 16px;
+}
+
+.footer {
+  padding: 16px;
+  background-color: #323232;
+  color: white;
+}
+.footer__title {
+  margin: 0;
+}
+.footer__wordmark {
+  margin: 1rem;
+}
+
+.social {
+  margin: 16px 0;
+  border: 2px solid red;
+}
+.social__icon-link {
+  width: 50px;
+  height: 50px;
+  padding-right: 10%;
+}
+
+.member {
+  border: 2px solid turquoise;
+  margin: 16px 0;
+}
+.member__name {
+  margin: 0;
+}
+.member__company {
+  margin: 0;
+  border: 1px solid yellow;
+}
+.member__details {
+  border: 2px solid purple;
+  font-style: normal;
+  margin: 16px 0;
+}
+.member__email {
+  font-style: normal;
+  margin: 16px 0;
+}/*# sourceMappingURL=bio.css.map */

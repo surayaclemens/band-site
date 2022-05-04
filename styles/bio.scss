@@ -1,0 +1,231 @@
+@use './partials/mixins' as *;
+@use './partials/colors' as *;
+@use './partials/variables' as *;
+@use './partials/typography' as *;
+
+
+// check on font usage...
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Avenir';
+
+}
+
+// mobile page header
+h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    
+}
+
+// section header
+h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+
+// subheader
+h3 {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 600;
+}
+
+
+
+
+// body copy, footer copy
+p, q, address {
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+}
+
+
+// HEADER
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary-dark;
+    color: $primary-light;
+    
+    &__wordmark {
+        margin: 1rem;
+    }
+}
+
+// NAVIGATION
+.nav {
+    width: 100%;
+    // height: 60px;
+    
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        list-style-type: none;
+        padding: 0;
+        margin: 0%;
+        font-size: 13px;
+    }
+
+    &__list-link {
+        color: $secondary-light;
+        text-decoration: none;
+        width: 50%;
+        text-align: center;
+        padding-bottom: 0.5rem;
+    
+        &--active {
+            border-bottom: 3px solid $primary-light;
+            font-weight: 700;
+        }
+
+        :hover {
+            border-bottom: 3px solid $primary-light;
+        }
+
+        :visited {
+            color: $primary-light;
+        }
+    }
+}
+
+
+
+// HERO BANNER
+.hero {
+    background-image: url(../assets/Images/hero-bio.jpg);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: rgba(50, 50, 50, 0.5);
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    position:relative;
+    z-index: 1;
+
+    &__title {
+        margin-left: 1rem;
+        color: $primary-light;
+        height: 100%;
+    }
+}
+
+
+// ABOUT SECTION
+.about {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+
+    &__title {
+        margin: 1.5rem 0 0 0;
+    }
+
+    &__img {
+        height: auto;
+        width: auto;
+        margin: 1rem 0;
+        }
+
+    &__quote {
+        margin: 0;
+            &-author {
+                margin-top: 1rem;
+            }
+    }
+
+    &__subtitle {
+        margin: 0;
+    }
+
+    // &__text {
+
+    // }
+}
+
+
+// GALLERY SECTION
+.gallery {
+    display: flex;
+    flex-direction: column;
+    background-color: $secondary-light;
+
+    &__title {
+        margin: 16px 16px 0 16px;
+    }
+
+    &__photo-container {
+        padding-bottom: 8px;
+        background-color: $secondary-light;
+    }
+
+    &__photo {
+        width: 90%;
+        height: auto;
+        margin: 8px 16px;
+    }
+}
+
+
+// FOOTER
+.footer {
+    padding: 16px;
+    background-color: $primary-dark;
+    color: $primary-light;
+
+    &__title {
+        margin: 0;
+    }
+
+    &__wordmark {
+       margin: 1rem;
+    }
+}
+
+
+
+.social {
+    margin: 16px 0;
+    border: 2px solid red;
+    &__icon-link {
+        width: 50px;
+        height: 50px;
+        padding-right: 10%;
+    }
+}
+
+.member {
+    border: 2px solid turquoise;
+    margin: 16px 0;
+    
+    &__name {
+        margin: 0;
+        
+    }
+
+    &__company {
+        margin: 0;
+        border: 1px solid yellow;
+    }
+
+    &__details {
+        border: 2px solid purple;
+        font-style: normal;
+        margin: 16px 0;
+    }
+    &__email {
+        font-style: normal;
+        margin: 16px 0;
+
+    }
+}
