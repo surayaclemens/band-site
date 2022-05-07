@@ -3,45 +3,44 @@
 @use './partials/variables' as *;
 @use './partials/typography' as *;
 
-
-// check on font usage...
 html, body {
     margin: 0;
     padding: 0;
     font-family: 'Avenir';
+    height: 100%;
 
 }
 
 // mobile page header
-h1 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 700;
+// h1 {
+//     font-size: 1.5rem;
+//     line-height: 2rem;
+//     font-weight: 700;
     
-}
+// }
 
 // section header
-h2 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 700;
-}
+// h2 {
+//     font-size: 1.5rem;
+//     line-height: 2rem;
+//     font-weight: 700;
+// }
 
 // subheader
-h3 {
-    font-size: 0.875rem;
-    line-height: 1.375rem;
-    font-weight: 600;
-}
-
+// h3 {
+//     font-size: 0.875rem;
+//     line-height: 1.375rem;
+//     font-weight: 600;
+// }
 
 
 
 // body copy, footer copy
-p, q, address {
+p {
     font-size: 0.813rem;
     line-height: 1.125rem;
     font-weight: 400;
+    margin-top: 0;
 }
 
 
@@ -53,18 +52,31 @@ p, q, address {
     justify-content: space-between;
     background-color: $primary-dark;
     color: $primary-light;
-    
+    @include tablet {
+        flex-direction: row;
+        height: 10vh;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+    &__bio-link {
+        @include tablet {
+            margin: .45rem .5rem;
+        }
+    }
     &__wordmark {
         margin: 1rem;
+        
     }
 }
 
 // NAVIGATION
 .nav {
     width: 100%;
-    // height: 60px;
+    @include tablet {
+        width: 20%;
+        
+    }
     
-
     &__list {
         display: flex;
         justify-content: space-between;
@@ -72,7 +84,11 @@ p, q, address {
         list-style-type: none;
         padding: 0;
         margin: 0%;
-        font-size: 13px;
+        font-size: 0.813rem;
+        @include tablet {
+        font-size: 1rem;
+      
+        }
     }
 
     &__list-link {
@@ -81,10 +97,17 @@ p, q, address {
         width: 50%;
         text-align: center;
         padding-bottom: 0.5rem;
-    
+        @include tablet {
+            margin: 0 2rem;
+            padding-bottom: 1.5rem;
+            
+            }
+       
         &--active {
             border-bottom: 3px solid $primary-light;
             font-weight: 700;
+            
+        
         }
 
         :hover {
@@ -98,25 +121,32 @@ p, q, address {
 }
 
 
-
-// HERO BANNER
+// HERO SECTION
 .hero {
     background-image: url(../assets/Images/hero-bio.jpg);
     background-position: center;
     background-size: cover;
     background-blend-mode: multiply;
     background-color: rgba(50, 50, 50, 0.5);
-    height: 40vh;
+    height: 28vh;
     width: 100%;
     display: flex;
-    height: 100%;
-    position:relative;
-    z-index: 1;
+    align-items: center;
+    @include tablet {
+        height: 30rem;
+        // using rem is responsive but shows less of screen when shrinking browser height
+        // using vh keeps the image at same % of visible screen but changes image differently
+        // change width at each break based on vw
+    }
 
     &__title {
         margin-left: 1rem;
         color: $primary-light;
-        height: 100%;
+        @include tablet {
+          @include tab-desk-h1;
+          margin-left: 5%; 
+        }
+        
     }
 }
 
@@ -126,31 +156,73 @@ p, q, address {
     display: flex;
     flex-direction: column;
     margin: 0 1rem;
+    color: $primary-dark;
+    @include tablet {
+        margin: 1rem 2.15rem 1.5rem 2.15rem;
+        height: auto;
+    }
+    
 
     &__title {
         margin: 1.5rem 0 0 0;
+        @include tablet {
+            @include tab-desk-h2;
+            margin-right: 50%;
+        }
+    
     }
 
     &__img {
         height: auto;
         width: auto;
         margin: 1rem 0;
+        @include tablet {
+           width: 75%; 
+           height: 20rem;
+           margin-left: 7%;
         }
+    }
 
     &__quote {
         margin: 0;
+        @include tablet {
+            width: 88%; 
+            margin-left: 7%;
+            @include tab-desk-h3;
+         }
             &-author {
                 margin-top: 1rem;
+                @include tablet {
+                    align-self: flex-start;
+                    margin-left: 7%;
+                    font-size: 1rem;
+                }
             }
     }
 
     &__subtitle {
-        margin: 0;
+        margin: 1rem 0;
+        font-weight: 600;
+        @include tablet {
+            margin-left: 7%;
+            @include tab-desk-h3;
+        }
     }
 
-    // &__text {
+    &__text-wrapper {
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
+            width: 90%;
+        }
+    }
 
-    // }
+    &__text {
+        @include tablet {
+            margin-left: 7%;
+        }
+    }
 }
 
 
@@ -159,36 +231,77 @@ p, q, address {
     display: flex;
     flex-direction: column;
     background-color: $secondary-light;
+    @include tablet {
+        padding: 3rem 2.25rem 1.5rem 2.25rem;
+    }
+
 
     &__title {
-        margin: 16px 16px 0 16px;
+        margin: 1rem 1rem 0 1rem;
+        @include tablet {
+            margin:0;
+            padding: 0 0 .75rem 0;
+        }
+        
     }
 
     &__photo-container {
-        padding-bottom: 8px;
+        padding-bottom: 1rem;
         background-color: $secondary-light;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        @include tablet {
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding-bottom: 0;
+        }
     }
 
     &__photo {
         width: 90%;
         height: auto;
-        margin: 8px 16px;
+        margin: .75rem 0;
+        @include tablet {
+            width: 31%;
+            
+        }
     }
 }
 
 
 // FOOTER
 .footer {
-    padding: 16px;
+    padding: 1rem;
     background-color: $primary-dark;
     color: $primary-light;
-
-    &__title {
-        margin: 0;
+    border: 3px solid magenta;
+    @include tablet {
+        padding: 1.5rem;
+        position: relative;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
     }
 
+    // got the position right side good doesn't move, but moves up and down?
     &__wordmark {
-       margin: 1rem;
+       margin: 1rem 0;
+       @include tablet {
+           position: absolute;
+           bottom: 75%;
+           right: 5%;
+       }
+    }
+
+    &__copyright {
+        border: 2px solid salmon;
+        @include tablet {
+            @include tab-desk-body;
+        }
     }
 }
 
@@ -197,35 +310,83 @@ p, q, address {
 .social {
     margin: 16px 0;
     border: 2px solid red;
-    &__icon-link {
-        width: 50px;
-        height: 50px;
+    @include tablet {
+        display: flex;
+        align-items: baseline;
+    }
+    &__title {
+        margin: 0;
+        @include tablet {
+            @include tab-desk-h2;
+        }
+    }
+    &__icon-wrapper {
+        // border: 2px solid blue;
+        @include tablet {
+            width: 20%;
+            height: 100%;
+            margin-left: 5%;
+            
+        }
+    }
+    &__icon {
+        width: 25px;
+        height: 25px;
         padding-right: 10%;
     }
+    
 }
 
-.member {
-    border: 2px solid turquoise;
-    margin: 16px 0;
-    
+.members {
+    border: 2px solid green;
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;  
+        height: 50%;      
+    }
+
+    &__box {
+        border: 2px solid turquoise;
+        margin: 16px 0;
+        @include tablet {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    }
+
     &__name {
         margin: 0;
-        
+        @include tablet {
+            font-size: .875rem;
+        }
     }
 
     &__company {
         margin: 0;
-        border: 1px solid yellow;
+        @include tablet {
+            font-size: .875rem;
+        }
+        // border: 1px solid yellow;
     }
 
     &__details {
         border: 2px solid purple;
-        font-style: normal;
-        margin: 16px 0;
+        margin: 1rem 0;
+        @include tablet {
+            margin: 1.5rem 0;
+            @include tab-desk-body;
+        }
     }
+
     &__email {
         font-style: normal;
-        margin: 16px 0;
-
+        margin: 1rem 0;
+        @include tablet {
+            margin: 0;
+            @include tab-desk-body;
+        }
     }
 }
