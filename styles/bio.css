@@ -104,9 +104,6 @@ html, body {
   border-bottom: 3px solid white;
   font-weight: 700;
 }
-.nav__list-link :hover {
-  border-bottom: 3px solid white;
-}
 .nav__list-link :visited {
   color: white;
 }
@@ -383,7 +380,6 @@ html, body {
   }
 }
 .footer__copyright {
-  border: 2px solid salmon;
   font-size: 0.7rem;
 }
 @media screen and (min-width: 768px) {
@@ -441,7 +437,6 @@ html, body {
 }
 
 .members {
-  border: 2px solid green;
   height: 25rem;
   display: flex;
   flex-direction: column;

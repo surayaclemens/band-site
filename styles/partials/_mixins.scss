@@ -1,18 +1,5 @@
 @use 'variables' as *;
 
-// @mixin nav-reset {
-//     margin:0%;
-//     display: flex;
-//     list-style-type:none;
-//     text-decoration: none;
-//     color: $primary-light;
-//     @content;
-// }
-
-// @mixin wordmark {
-//     text-transform: uppercase;
-// }
-
 @mixin tablet {
     @media screen and (min-width: $tablet-breakpoint) {
         @content;

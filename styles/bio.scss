@@ -75,9 +75,6 @@ html, body {
             border-bottom: 3px solid $primary-light;
             font-weight: 700;       
         }
-        :hover {
-            border-bottom: 3px solid $primary-light;
-        }
         :visited {
             color: $primary-light;
         }
@@ -289,7 +286,6 @@ html, body {
        }
     }
     &__copyright {
-        border: 2px solid salmon;
         font-size: 0.7rem;
         @include tablet {
             margin: 1rem 0 1rem 0;
@@ -334,7 +330,6 @@ html, body {
 }
 
 .members {
-    border: 2px solid green;
     height: 25rem;
     display: flex;
     flex-direction: column;
