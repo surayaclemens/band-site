@@ -1,3 +1,307 @@
-.address {
-    font-size: 1rem;
+@use './partials/mixins' as *;
+@use './partials/colors' as *;
+@use './partials/variables' as *;
+@use './partials/typography' as *;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Avenir';
+    height: 100%;
+}
+
+// HEADER
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary-dark;
+    color: $primary-light;
+    height: 5rem;
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+    @include desktop {
+        padding-left: 6rem;
+        height: 6rem;
+    }
+    &__wordmark-link {
+        margin: 1rem 0rem 0rem 0rem;
+        @include tablet {
+            margin: 0rem 1.5rem 1.5rem 2rem;
+        }
+        @include desktop {
+            margin: 0rem 1.5rem 2rem 2rem;
+        }
+    }
+}
+
+// NAVIGATION
+.nav {
+    width: 100%;
+    @include tablet {
+        width: 20%;        
+    }   
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        list-style-type: none;
+        padding: 0;
+        margin: 0%;
+        font-size: 0.813rem;
+        @include tablet {
+        font-size: 1rem;     
+        }
+    }
+    &__list-link {
+        color: $secondary-light;
+        text-decoration: none;
+        width: 50%;
+        text-align: center;
+        padding-bottom: 0.5rem;
+        @include tablet {
+            margin: 0 2rem;
+            padding-bottom: 1.4rem;           
+            }     
+        @include desktop {
+            margin: 0 2rem;
+            padding-bottom: 1.8rem;           
+            } 
+        &--active {
+            border-bottom: 3px solid $primary-light;
+            font-weight: 700;       
+        }
+        :visited {
+            color: $primary-light;
+        }
+    }
+}
+
+// HERO SECTION
+.hero {
+    background-image: url(../assets/Images/hero-shows.jpg);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: rgba(50, 50, 50, 0.5);
+    height: 20rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    @include tablet {
+        background-position: bottom;
+        height: 29rem;
+    }
+    @include desktop {
+        background-position: top;
+        height: 45rem;
+    }
+    &__subtitle {
+        margin: 1rem 0 0 1rem;
+        color: $primary-light;
+        font-weight: 400;
+        font-size: 1rem;
+        @include tablet {
+          @include tab-desk-h1;
+          margin-left: 2rem; 
+        }       
+        @include desktop {
+            padding-left: 3.5rem;
+        }
+    }
+    &__title {
+        margin: 0 0 0 1rem;
+        width: 65%;
+        color: $primary-light;
+        @include tablet {
+          @include tab-desk-h1;
+          margin-left: 2rem; 
+        }       
+        @include desktop {
+            padding-left: 3.5rem;
+        }
+    }
+    // these styles don't seem quite right - where is "preview"?
+    &__embed {
+        margin: 0 0 0 1rem;
+        max-width: 90%;
+        max-height: 45%;
+    }
+}
+
+// SHOWS SECTION
+.shows {
+    margin: 2rem 1rem 1rem 1rem;
+
+    &__title {
+    font-weight: 600;
+    }
+}
+.event {
+
+    &__detail-wrapper {
+
+    }
+
+    &__detail-head {
+
+    }
+
+    &__detail-body {
+
+    }
+
+    &__button {
+
+    }
+}
+
+// FOOTER
+.footer {
+    padding: .5rem 1rem 1rem 1rem;
+    background-color: $primary-dark;
+    color: $primary-light;
+    height: 39rem;
+    @include tablet {
+        padding: 1.5rem;
+        position: relative;
+        height: 21rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;   
+    }
+    @include desktop {
+        justify-content: space-evenly;
+        height: 22rem;
+        padding: 1rem 3rem 1rem 7rem;
+    }
+    &__wordmark {
+        margin-top: 1rem;
+       @include tablet {
+           position: absolute;
+           top: 11%;
+           right: 5%;
+       }
+       @include desktop {
+           position: absolute;
+           top: 4rem;
+           right: 7rem
+       }
+    }
+    &__copyright {
+        font-size: 0.7rem;
+        @include tablet {
+            margin: 1rem 0 1rem 0;
+            @include tab-desk-p;
+        }
+        @include desktop {
+            margin-bottom: 0cm;
+        }
+    }
+}
+
+.social {
+    margin: 1rem 0;
+    @include tablet {
+        display: flex;
+        align-items: baseline;
+        margin: 0;
+        position: relative;
+        top: 3%;
+        left: 0%;
+    }
+    &__title {
+        margin: 0;
+        @include tablet {
+            @include tab-desk-h2;
+        }
+    }
+    &__icon-wrapper {
+        margin-top: 1rem;
+        width: 70%;
+        @include tablet {
+            width: 20%;
+            height: 100%;
+            margin-left: 5%;           
+        }
+    }
+    &__icon {
+        width: 25px;
+        height: 25px;
+        padding-right: 10%;
+    }   
+}
+
+.members {
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 2.75rem;
+    line-height: 1.125rem;
+    @include tablet {
+        padding: 0;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 44rem;  
+        height: 60%; 
+    }
+    @include desktop {
+        justify-content: space-between;
+        height: auto;
+        width: 46rem;
+        margin-top: 1.75rem;
+    }
+    &__box {
+        @include tablet {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 70%;
+        }
+        @include desktop {
+            height: auto;
+        }
+    }
+    &__name {
+        margin: 0;
+        @include mobile-foot;
+        @include tablet {
+            @include tab-desk-foot;
+        }
+    }
+    &__company {
+        margin-bottom: .8rem;
+        @include mobile-foot;
+        @include tablet {
+            @include tab-desk-foot;
+            margin-bottom: 0;
+        }
+    }
+    &__details {
+        margin-bottom: .8rem;
+        @include mobile-foot;
+        @include tablet {
+            margin: 1.2rem 0;
+            @include tab-desk-p;
+        }
+    }
+    &__email {
+        margin-bottom: 0;
+        @include mobile-foot;
+        @include tablet {
+            margin: 0;
+            @include tab-desk-p;
+        }
+    }
 }
