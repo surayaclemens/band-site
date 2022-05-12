@@ -181,6 +181,34 @@ html, body {
 }
 .shows__title {
   font-weight: 600;
+  border: 1px solid pink;
+}
+
+.event {
+  border-bottom: 1px solid #e1e1e1;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.event__detail-head {
+  font-size: 0.7rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #afafaf;
+  margin: 0;
+}
+.event__detail-body {
+  font-size: 0.875rem;
+  line-height: 1.13rem;
+  margin: 0;
+}
+.event__detail-body--bold {
+  font-weight: 600;
+}
+.event__button {
+  margin: 0;
 }
 
 .footer {

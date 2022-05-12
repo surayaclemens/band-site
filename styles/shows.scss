@@ -141,24 +141,35 @@ html, body {
 
     &__title {
     font-weight: 600;
+    border: 1px solid pink;
     }
 }
 .event {
+    border-bottom: 1px solid $secondary-med;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
     &__detail-wrapper {
 
     }
 
     &__detail-head {
-
+        @include subhead-caps;
+        margin: 0;
     }
 
     &__detail-body {
-
+        @include mob-p;
+        margin: 0;
+        &--bold {
+            font-weight: 600;
+        }
     }
 
     &__button {
-
+        margin: 0;
     }
 }
 
