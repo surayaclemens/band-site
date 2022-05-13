@@ -82,18 +82,30 @@
     </section>
 
     <!-- COMMENT SECTION -->
-    <section class="comments" id="comments">
-      <form>
-        <label for="Name">Name</label>
-        <input id="Name" type="text" name="name">
-
-        <label for="Comment">Comment:</label>
-        <textarea id="Comment" type="textarea" name="comment"></textarea>
-
-        <button type="Submit">Comment</button>
+    <section class="comment-section">
+      <h2 class="comment-section__header">Join the Conversation</h2>
+      <form class="form">
+        <div class="form__avatar"></div>
+        <div class="form__inputs">
+          <label class="form__label" for="name">Name</label>
+          <input id="name" type="text" name="name">
+          <label class="form__label" for="comment">Comment:</label>
+          <textarea id="comment" type="textarea" name="comment"></textarea> 
+          <button class="form__button" type="Submit">Comment</button>
+        </div>
       </form>
-      <!-- this is where the new comments should show up when posted, in this empty div -->
-      <div class="posts">
+     
+      <div class="comments__wrapper">
+         <!-- this is where the new comments should show up when posted, in this empty div -->
+         <!-- this is hard coded dummy stuff so I can style, will take it out -->
+         <div class="comment__container">
+           <div class="comment__container-top">
+              <img class="comment__image--none" src="">
+              <p class="commenter__name">My Name</p>
+              <p class="comment__date">05/12/22</p>
+          </div>
+           <p class="comment__text">I love javascript I love javascript I love javascript I love javascript I love javascript I love javascript I love javascript I love javascript I love javascript</p>
+         </div>
       </div>
     </section>
 

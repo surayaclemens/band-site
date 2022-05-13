@@ -1,63 +1,84 @@
 // set up variables for things I'm gonna need
-// const form = document.querySelector('form');
-// const postContainer = document.querySelector('.posts');
-// const commenterName = document.querySelector('input');
-// const comment = document.querySelector('textarea');
+const form = document.querySelector('form');
+let commentsWrapper = document.querySelector('.comments__wrapper');
 
-// creating array of objects for default comments
-let comments = [
+
+// creating array of objects for comments
+let commentArray = [
     {
+        img: "",
         name: "Connor Walton", 
         timestamp: "02/17/2021",
         text: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
     },
     {
+        img: "",
         name: "Emilie Beach", 
         timestamp: "01/09/2021",
         text: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
     },
     {
+        img: "",
         name: "Miles Acosta", 
         timestamp: "12/20/2020",
         text: "I can't stop listening. Every time I hear one of their songs the vocals it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can t get enough.",
     },
+    {
+        img: "",
+        name: " ",
+        timestamp: 123,
+        text: " ",
+    }
 ];
 
-function displayComment(comment) {
+// should the parameter here be the submission event? or a comment?
+// should this all be inside the event listener?
+let displayComment = (ev) => {
+    for (let i = 0; i < commentArray.length; i++) {
+    // making the div that holds a single comment
+    let singleCommentContainer = document.createElement("div");
+    singleCommentContainer.classList.add("comment__container");
+    commentsWrapper.appendChild(singleCommentContainer);
 
-// Loop through the array
-    for (let i = 0; i < comments.length; i++) {
-        // create a container for each comment
-        let commentContainer = document.createElement("section");
-        // We can add classes for styles that we've written in our CSS or SCSS files, or we can use the .style property along with any CSS property (for example: CommentContainer.style.backgroundColor = "red")
-        commentContainer.classList.add("comment__container");
-        // We then use appendChild to add a child element to a container element. Syntax: parentElement.appendChilid(childElement)
-        posts.appendChild(commentContainer);
-    
-        // Create the element
-        let commenterName = document.createElement("h3");
-        // Add any classes or styles
-        commenterName.classList.add("comment__name");
-        // Append the element to a parent
-        commentContainer.appendChild(commenterName);
-    
-        // Create the element
-        let commentText = document.createElement("p");
-        // Add any classes or styles
-        commentText.classList.add("comment__text");
-        // Append the element to a parent
-        commentContainer.appendChild(commentText);
+// making the empty image circle for each comment
+    let noImage = document.createElement("img");
+    noImage.classList.add("comment__image--none");
+    singleCommentContainer.appendChild(noImage);
 
+// making the name of the commenter
+    let commenterName = document.createElement("p");
+    commenterName.classList.add("commenter__name");
+    commenterName.innerText = ev.target.name.value;
+    singleCommentContainer.appendChild(commenterName);
+
+// making the date stamp
+    let date = document.createElement("p");
+    date.classList.add("comment__date");
+    // date.innerText = ???????;
+    singleCommentContainer.appendChild(date);
+
+
+// make the comment text
+    let commentText = document.createElement("p");
+    commentText.classList.add("comment__text");
+    commentText.innerText = ev.target.comment.value;
+    singleCommentContainer.appendChild(commentText);
     }
 }
-  
-// this is how it would be called...but needs an argument?
-displayComment(comments[0]);
 
-// add event listener to submit?
+// look at third line of all these ^ where I'm trying to target the name or text or date from each object within the array
+// should it be like that or try to do event.target.name.value for when the new comments are posted?
+
+// when I call the function here should I be passing in the form submission?
+displayComment();
+
+
+// making event listener for submit
 form.addEventListener('submit', (ev) => {
     ev.preventDefault();
+    displayComment ();
     });
+
 
 
 
