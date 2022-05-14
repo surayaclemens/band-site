@@ -136,43 +136,55 @@ html, body {
 }
 
 // SHOWS SECTION
-.shows {
-    margin: 2rem 1rem 1rem 1rem;
 
-    &__title {
-    font-weight: 600;
-    border: 1px solid pink;
-    }
-}
-.event {
-    border-bottom: 1px solid $secondary-med;
-    height: 12rem;
+.shows {
+    // margin: 2rem 1rem 1rem 1rem;
+    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 
-    &__detail-wrapper {
-
+    &__title {
+    font-weight: 600;
+    border: 1px solid lime;
     }
 
-    &__detail-head {
-        @include subhead-caps;
-        margin: 0;
-    }
-
-    &__detail-body {
-        @include mob-p;
-        margin: 0;
-        &--bold {
-            font-weight: 600;
-        }
-    }
-
-    &__button {
-        margin: 0;
+    &__event {
+        // border-bottom: 1px solid $secondary-med;
+        border: 2px solid turquoise;
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-evenly;
     }
 }
+        .details {
+            border: 3px solid red;
+            display: flex;
+            flex-direction: column;
+    
+            &__head {
+                @include subhead-caps;
+                margin: 0;
+                border: 3px solid blue;
+            }
+    
+            &__body {
+                @include mob-p;
+                margin: .5rem 0;
+                border: 3px solid green;
+                &--bold {
+                    font-weight: 600;
+                    border: 1px solid magenta;
+                }
+            }
 
+            &__button {
+                @include button;
+            }
+    }
+
+    
 // FOOTER
 .footer {
     padding: .5rem 1rem 1rem 1rem;
