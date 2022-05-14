@@ -1,5 +1,5 @@
 // set up variables for things I'm gonna need
-const form = document.querySelector('form');
+let form = document.querySelector('form');
 let commentsWrapper = document.querySelector('.comments__wrapper');
 
 
@@ -21,106 +21,79 @@ let commentArray = [
         img: "",
         name: "Miles Acosta", 
         timestamp: "12/20/2020",
-        text: "I can't stop listening. Every time I hear one of their songs the vocals it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can t get enough.",
+        text: "I can't stop listening. Every time I hear one of their songs the vocals it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
     },
-    {
-        img: "",
-        name: " ",
-        timestamp: 123,
-        text: " ",
-    }
 ];
 
-// should the parameter here be the submission event? or a comment?
-// should this all be inside the event listener?
-let displayComment = (ev) => {
+// here I'm defining the funtion for displaying a comment
+// start at the beginning of the commentArray, loop through as long as there are comments
+
+let displayComment = () => {
     for (let i = 0; i < commentArray.length; i++) {
     // making the div that holds a single comment
     let singleCommentContainer = document.createElement("div");
     singleCommentContainer.classList.add("comment__container");
     commentsWrapper.appendChild(singleCommentContainer);
 
-// making the empty image circle for each comment
+    // making the empty image circle for each comment
     let noImage = document.createElement("img");
     noImage.classList.add("comment__image--none");
     singleCommentContainer.appendChild(noImage);
 
+    // making the div for comment content (to separate from img)
+    let commentContent = document.createElement("div");
+    commentContent.classList.add("comment__content");
+    singleCommentContainer.appendChild(commentContent);
+
+    // making the div for top content (to style name & date away from text)
+    let commentContentTop = document.createElement("div");
+    commentContentTop.classList.add("comment__content-top");
+    commentContent.appendChild(commentContentTop);
+
 // making the name of the commenter
     let commenterName = document.createElement("p");
     commenterName.classList.add("commenter__name");
-    commenterName.innerText = ev.target.name.value;
-    singleCommentContainer.appendChild(commenterName);
+    commenterName.innerText = commentArray[i].name;
+    commentContentTop.appendChild(commenterName);
 
 // making the date stamp
     let date = document.createElement("p");
     date.classList.add("comment__date");
-    // date.innerText = ???????;
-    singleCommentContainer.appendChild(date);
+    date.innerText = commentArray[i].timestamp;
+    commentContentTop.appendChild(date);
 
 
 // make the comment text
     let commentText = document.createElement("p");
     commentText.classList.add("comment__text");
-    commentText.innerText = ev.target.comment.value;
-    singleCommentContainer.appendChild(commentText);
+    commentText.innerText = commentArray[i].text;
+    commentContent.appendChild(commentText);
     }
 }
 
-// look at third line of all these ^ where I'm trying to target the name or text or date from each object within the array
-// should it be like that or try to do event.target.name.value for when the new comments are posted?
-
-// when I call the function here should I be passing in the form submission?
+// here I'm calling the function so they show up in the first place, then the event listener below will deal with new ones from form
 displayComment();
 
 
-// making event listener for submit
+// making event listener for submit that pulls values from the form
 form.addEventListener('submit', (ev) => {
     ev.preventDefault();
-    displayComment ();
+    let newCommentName = ev.target.name.value
+    let newCommentText = ev.target.comment.value
+    let newCommentDate = "12/12/12"
+    let newCommentObject = {
+        img: "",
+        name: newCommentName,
+        text: newCommentText, 
+        timestamp: newCommentDate  
+    }
+    // this push of the new comment object has to be inside the event listener, so it gets added to the array on submit
+    commentArray.push(newCommentObject);
+    // this null thing resets them each time so they don't duplicate on every submission
+    commentsWrapper.innerHTML = null;
+    // then you call display comment within the event listener so your new comments get displayed
+    displayComment();
+    form.reset();
     });
 
 
-
-
-// from pavel's pod demo
-    // const handlePostComment = (event) => {
-    //     event.preventDefault();
-    
-    //     // create the comment name
-    //     const commentName = document.createElement('h3');
-    //     commentName.innerText = event.target.name.value;
-        
-    //     // create the comment text
-    //     const commentText = document.createElement('p');
-    //     commentText.innerText = event.target.textarea.value;
-    
-    //     // create wrapper for comment
-    //     const commentWrapper = document.createElement('div');
-        
-    //     // append text and name of the comment to the wrapper
-    //     commentWrapper.appendChild(commentName);
-    //     commentWrapper.appendChild(commentText);
-        
-    //     // add comment to comment wrapper
-    //     commentContainer.prepend(commentWrapper);
-    
-    //     name.value = "";
-    //     comment.value = "";
-    
-    // }
-
-
-
-// from lauren's form demo
-    // form.addEventListener('submit', (e) => {
-    //     // console.log(e);
-    //     const name = e.target.name.value;
-    //     const comment = e.target.email.value;
-    //     const password = e.target.password.value;
-    //     const confirmPassword = e.target.confirmPassword.value;
-    //     e.preventDefault();
-    //     if (confirmPassword.value === password.value) {
-    //         alert("Please make sure passwords match");
-    //         return;
-    //     }
-    //     });

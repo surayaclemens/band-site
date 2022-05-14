@@ -340,10 +340,10 @@ html, body {
 }
 
 .comment-section {
-  border: 2px solid lime;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-evenly;
   width: 100%;
 }
 .comment-section__header {
@@ -353,12 +353,10 @@ html, body {
 }
 
 .form {
-  border: 2px solid magenta;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 90%;
-  margin-left: 1rem;
 }
 .form__avatar {
   width: 2.3rem;
@@ -370,7 +368,6 @@ html, body {
   margin-top: 1rem;
 }
 .form__inputs {
-  border: 2px solid blue;
   display: flex;
   flex-direction: column;
   width: 78%;
@@ -386,7 +383,10 @@ html, body {
   color: white;
   background-color: #323232;
   text-transform: uppercase;
-  height: 2rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 #name {
@@ -395,6 +395,7 @@ html, body {
   border-radius: 4px;
   padding: 0.75rem;
   margin-bottom: 1rem;
+  font-family: "Avenir";
   height: 0.75rem;
 }
 
@@ -404,49 +405,70 @@ html, body {
   border-radius: 4px;
   padding: 0.75rem;
   margin-bottom: 1rem;
+  font-family: "Avenir";
   min-height: 4rem;
 }
 
+::-moz-placeholder {
+  color: #323232;
+}
+
+:-ms-input-placeholder {
+  color: #323232;
+}
+
+::placeholder {
+  color: #323232;
+}
+
 .comments__wrapper {
-  border: 3px solid turquoise;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
 .comment__container {
-  border: 2px solid red;
-  width: 100%;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 1rem;
+  width: 90%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.comment__container-top {
-  border: 1px solid salmon;
-  height: 50px;
+.comment__content {
+  width: 80%;
+}
+
+.comment__content-top {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1rem 0;
 }
 
 .comment__image--none {
   width: 2.3rem;
   height: 2.3rem;
   border-radius: 100%;
-  background-color: #afafaf;
+  background-color: #e1e1e1;
+  margin-top: 1rem;
 }
 
 .commenter__name {
   font-size: 0.875rem;
   line-height: 1.13rem;
-  margin: 1rem 0;
+  font-weight: 600;
+  margin: 0;
 }
 
 .comment__date {
   font-size: 0.875rem;
   line-height: 1.13rem;
   margin: 0;
-  position: absolute;
-  top: 1rem;
-  left: 15.4rem;
+  color: #afafaf;
 }
 
 .comment__text {
