@@ -108,7 +108,7 @@ html, body {
         font-weight: 400;
         font-size: 1rem;
         @include tablet {
-          @include tab-desk-h1;
+          @include tab-desk-h3;
           margin-left: 2rem; 
         }       
         @include desktop {
@@ -122,6 +122,7 @@ html, body {
         @include tablet {
           @include tab-desk-h1;
           margin-left: 2rem; 
+          width: 70%;
         }       
         @include desktop {
             padding-left: 3.5rem;
@@ -132,11 +133,14 @@ html, body {
         margin: 0 0 0 1rem;
         max-width: 90%;
         max-height: 45%;
+        @include tablet {
+            max-width: 60%;
+            margin: 2rem;
+        }
     }
 }
 
 // SHOWS SECTION
-
 .shows {
     // margin: 2rem 1rem 1rem 1rem;
     border: 1px solid red;
@@ -146,43 +150,106 @@ html, body {
 
     &__title {
     font-weight: 600;
-    border: 1px solid lime;
+    margin: 2rem 0 0.25rem 1rem;
+    @include tablet {
+        margin: 2rem 0 0.25rem 2rem;
+        }
     }
-
+// the grey subheaders for show info category that show up after 767px
+    @include tablet {
+    &__categories-wrapper {
+        border: 1px solid red;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 34rem;
+        margin-left: 2rem;
+    }
+        &__categories {
+        @include subhead-caps;
+        font-weight: 600;
+        border: 2px solid blue;
+        width: 8rem;
+        margin: 1rem 2rem 1rem 0rem;
+        } 
+    }
+    
+    @include mobile {
+        &__categories-wrapper {
+            display: none;
+        }
+            &__categories {
+            display: none;
+            } 
+    }
     &__event {
-        // border-bottom: 1px solid $secondary-med;
+        border-bottom: 1px solid $secondary-med;
         border: 2px solid turquoise;
         margin: 1rem;
         display: flex;
         flex-direction: column;
-        // justify-content: space-evenly;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            width: 92%;
+            margin: 1rem 1rem 1rem 2rem;
+        }
+        &:hover {
+            background-color: $secondary-light;
+        }
+        &--active {
+            background-color: $secondary-med;
+            &:hover {
+                background-color: $secondary-med;
+            }
+        }
     }
 }
-        .details {
-            border: 3px solid red;
-            display: flex;
-            flex-direction: column;
-    
-            &__head {
-                @include subhead-caps;
-                margin: 0;
-                border: 3px solid blue;
-            }
-    
-            &__body {
-                @include mob-p;
-                margin: .5rem 0;
-                border: 3px solid green;
-                &--bold {
-                    font-weight: 600;
-                    border: 1px solid magenta;
-                }
-            }
-
-            &__button {
-                @include button;
-            }
+.details {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 34rem;
+        margin: 0;
     }
+
+    &__head {
+        @include subhead-caps;
+        font-weight: 600;
+        margin: 0;
+        border: 1px solid blue;
+        @include tablet {
+            display: none;
+        }
+        
+    }
+
+    &__body {
+        @include mob-p;
+        margin: 0rem 0 1rem 0;
+        border: 1px solid green;
+        @include tablet {
+            width: 8rem;
+            margin: 1rem 2rem 1rem 0rem;
+        }
+        &--bold {
+            font-weight: 600;
+        }
+    }
+
+    &__button {
+        @include button;
+        margin: .5rem 0 1rem 0;
+        @include tablet {
+            padding: .5rem 1.5rem;
+            margin: 1rem 0;
+        }
+    }
+}
 
     
 // FOOTER

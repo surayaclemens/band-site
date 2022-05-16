@@ -1,6 +1,12 @@
 @use 'variables' as *;
 @use 'colors' as *;
 
+@mixin mobile {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
 @mixin tablet {
     @media screen and (min-width: $tablet-breakpoint) {
         @content;
@@ -92,8 +98,10 @@
     color: $primary-light;
     background-color: $primary-dark;
     text-transform: uppercase;
-    height: 2.5rem;
+    height: 40px;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
+    font-family: 'Avenir';
+    font-weight: 600;
 }

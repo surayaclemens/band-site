@@ -383,10 +383,12 @@ html, body {
   color: white;
   background-color: #323232;
   text-transform: uppercase;
-  height: 2.5rem;
+  height: 40px;
   border: none;
   border-radius: 4px;
   font-size: 1rem;
+  font-family: "Avenir";
+  font-weight: 600;
 }
 
 #name {
@@ -397,6 +399,11 @@ html, body {
   margin-bottom: 1rem;
   font-family: "Avenir";
   height: 0.75rem;
+  outline: none;
+}
+#name:focus {
+  outline: none;
+  border: 1px solid #323232;
 }
 
 #comment {
@@ -407,6 +414,11 @@ html, body {
   margin-bottom: 1rem;
   font-family: "Avenir";
   min-height: 4rem;
+  outline: none;
+}
+#comment:focus {
+  outline: none;
+  border: 1px solid #323232;
 }
 
 ::-moz-placeholder {

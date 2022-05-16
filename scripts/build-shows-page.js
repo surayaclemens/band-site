@@ -47,6 +47,25 @@ let showsTitle = document.createElement('h2');
     showsTitle.innerText="Shows";
     shows.appendChild(showsTitle);
 
+
+// category subtitles for desktop and tablet shows table
+let categoryWrapper = document.createElement('div');
+    categoryWrapper.classList.add("shows__categories-wrapper")
+    shows.appendChild(categoryWrapper);
+
+let dateForTable = document.createElement('p');
+    dateForTable.classList.add("shows__categories");
+    dateForTable.innerText="Date";
+    categoryWrapper.appendChild(dateForTable);
+let venueForTable = document.createElement('p');
+    venueForTable.classList.add("shows__categories");
+    venueForTable.innerText="Venue";
+    categoryWrapper.appendChild(venueForTable);
+let locationForTable = document.createElement('p');
+    locationForTable.classList.add("shows__categories");
+    locationForTable.innerText="Location";
+    categoryWrapper.appendChild(locationForTable);
+
 // DEFINING THE LOOP - FOR EACH EVENT BOX
 let displayShow = () => {
         for (let i = 0; i < showsArray.length; i++) {
@@ -96,5 +115,24 @@ let detailsButton = document.createElement("button");
     showEvent.appendChild(detailsButton);
 }}
 
-// INVOKE THE LOOP TO DISPLAY SHOW INFO
+
+// INVOKE THE LOOP TO DISPLAY SHOW INFO ON PAGE
 displayShow();
+
+
+// adding click listener for active showEvent
+let showEvent = document.querySelectorAll(".shows__event");
+console.log (showEvent);
+
+for (let i = 0; i < showEvent.length; i++) {
+    showEvent[i].addEventListener ('click', (changeBackground) => {
+        changeBackground.target.classList.add("shows__event--active");
+        });
+
+        for (let j = 0; j < showEvent.length; j++) {
+            showEvent[j].addEventListener ('click', (changeBackground) => {
+                showEvent[i].classList.remove("shows__event--active");
+                changeBackground.target.classList.add("shows__event--active")
+            });
+        }
+}

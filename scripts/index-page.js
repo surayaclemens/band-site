@@ -27,25 +27,24 @@ let commentArray = [
 
 // here I'm defining the funtion for displaying a comment
 // start at the beginning of the commentArray, loop through as long as there are comments
-
 let displayComment = () => {
     for (let i = 0; i < commentArray.length; i++) {
-    // making the div that holds a single comment
+// making the div that holds a single comment
     let singleCommentContainer = document.createElement("div");
     singleCommentContainer.classList.add("comment__container");
     commentsWrapper.appendChild(singleCommentContainer);
 
-    // making the empty image circle for each comment
+// making the empty image circle for each comment
     let noImage = document.createElement("img");
     noImage.classList.add("comment__image--none");
     singleCommentContainer.appendChild(noImage);
 
-    // making the div for comment content (to separate from img)
+// making the div for comment content (to separate from img)
     let commentContent = document.createElement("div");
     commentContent.classList.add("comment__content");
     singleCommentContainer.appendChild(commentContent);
 
-    // making the div for top content (to style name & date away from text)
+// making the div for top content (to style name & date away from text)
     let commentContentTop = document.createElement("div");
     commentContentTop.classList.add("comment__content-top");
     commentContent.appendChild(commentContentTop);
@@ -74,24 +73,30 @@ let displayComment = () => {
 // here I'm calling the function so they show up in the first place, then the event listener below will deal with new ones from form
 displayComment();
 
-
 // making event listener for submit that pulls values from the form
 form.addEventListener('submit', (ev) => {
+// prevent default refresh on page with submission
     ev.preventDefault();
     let newCommentName = ev.target.name.value
     let newCommentText = ev.target.comment.value
-    let newCommentDate = "12/12/12"
+// setting up the date function, then creating each part of the date, then putting them into a string to look right
+    let newCommentDate = new Date ();
+    let day = newCommentDate.getDate ();
+    let month = newCommentDate.getMonth ();
+    let year = newCommentDate.getFullYear ();
+    let currentTimestamp = month + "/" + day + "/" + year;
+// creating the new comment object to be added to the array
     let newCommentObject = {
         img: "",
         name: newCommentName,
         text: newCommentText, 
-        timestamp: newCommentDate  
+        timestamp: currentTimestamp 
     }
-    // this push of the new comment object has to be inside the event listener, so it gets added to the array on submit
-    commentArray.push(newCommentObject);
-    // this null thing resets them each time so they don't duplicate on every submission
+// this unshift of the new comment object has to be inside the event listener, so it gets added to the array on submit, has to be unshift so it appears at beginning of array
+    commentArray.unshift(newCommentObject);
+// this null thing resets them each time so they don't duplicate on every submission
     commentsWrapper.innerHTML = null;
-    // then you call display comment within the event listener so your new comments get displayed
+// then call display comment within the event listener so new comments get displayed
     displayComment();
     form.reset();
     });

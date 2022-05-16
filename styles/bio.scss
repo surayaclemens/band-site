@@ -314,11 +314,23 @@ html, body {
 #name {
     @include form-inputs;
     height: .75rem;
+    outline: none;
+
+    &:focus {
+        outline: none;
+        border: 1px solid $primary-dark;
+    }
 }
 
 #comment {
     @include form-inputs;
     min-height: 4rem;
+    outline: none;
+
+    &:focus {
+        outline: none;
+        border: 1px solid $primary-dark;
+    }
 }
 
 ::placeholder {
