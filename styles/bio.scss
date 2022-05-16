@@ -255,31 +255,43 @@ html, body {
 
 // COMMENT SECTION
 
-// the whooole comment section including title, form, comments
 .comment-section {
-    // border: 2px solid lime;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    color: $primary-dark;
 
     &__header {
         font-weight: 600;
         margin: .5rem 0 1rem 1rem;
         color: $primary-dark;
+        @include tablet {
+        align-self: flex-start;
+        margin: 2rem;
+        @include tab-desk-h2;
+        }
+        @include desktop {
+            margin-left: 7rem;
+        }
     }
     
 }
 
 .form {
-    // border: 2px solid magenta;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
-    // margin-left: 1rem;
-    
+    margin-bottom: 1rem;
+    @include tablet {
+        width: 80%;
+    }
+    @include desktop {
+        width: 40%;
+    }
+
     &__avatar {
         width: 2.3rem;
         height: 2.3rem;
@@ -293,8 +305,12 @@ html, body {
         // border: 2px solid blue;
         display: flex;
         flex-direction: column;
-        width: 78%;
+        width: 85%;
+        @include tablet {
+            width: 92%;
+        }
     }
+    
     &__label {
         text-transform: uppercase;
         color: $primary-med;
@@ -305,9 +321,12 @@ html, body {
     }
     &__button {
         @include button;
-        
-        
+        @include tablet {
+            width: 10rem;
+            align-self: flex-end
+        }
     }
+        
 }
 
 // make this stuff a mixin to use on both form fields
@@ -339,31 +358,38 @@ html, body {
 
 // wrapping div that will hold all the comments
 .comments__wrapper {
-    // border: 3px solid turquoise;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-bottom: 1rem;
+    @include tablet {
+        width: 83%;
+    }
 }
 
 // the div of just one comment
 .comment__container {
     border-bottom: 1px solid $secondary-med;
     padding-bottom: 1rem;
-    width: 90%;
+    width: 95%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    // position: relative;
+        &:nth-child(1) {
+        border-top: 1px solid $secondary-med;
+        }
+    @include desktop {
+        width: 48%;
+        margin-bottom: .5rem;
+    }
 }  
 
 .comment__content {
-    // border: 1px solid teal;
-    width: 80%;
+    width: 85%;
 }
 
 .comment__content-top {
-    // border: 1px solid salmon;
     display: flex;
     width: 100%;
     justify-content: space-between;

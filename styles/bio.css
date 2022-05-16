@@ -345,11 +345,26 @@ html, body {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  color: #323232;
 }
 .comment-section__header {
   font-weight: 600;
   margin: 0.5rem 0 1rem 1rem;
   color: #323232;
+}
+@media screen and (min-width: 768px) {
+  .comment-section__header {
+    align-self: flex-start;
+    margin: 2rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 2.75rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comment-section__header {
+    margin-left: 7rem;
+  }
 }
 
 .form {
@@ -357,6 +372,17 @@ html, body {
   flex-direction: row;
   justify-content: space-between;
   width: 90%;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .form {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .form {
+    width: 40%;
+  }
 }
 .form__avatar {
   width: 2.3rem;
@@ -370,7 +396,12 @@ html, body {
 .form__inputs {
   display: flex;
   flex-direction: column;
-  width: 78%;
+  width: 85%;
+}
+@media screen and (min-width: 768px) {
+  .form__inputs {
+    width: 92%;
+  }
 }
 .form__label {
   text-transform: uppercase;
@@ -389,6 +420,12 @@ html, body {
   font-size: 1rem;
   font-family: "Avenir";
   font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .form__button {
+    width: 10rem;
+    align-self: flex-end;
+  }
 }
 
 #name {
@@ -438,19 +475,34 @@ html, body {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .comments__wrapper {
+    width: 83%;
+  }
 }
 
 .comment__container {
   border-bottom: 1px solid #e1e1e1;
   padding-bottom: 1rem;
-  width: 90%;
+  width: 95%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+.comment__container:nth-child(1) {
+  border-top: 1px solid #e1e1e1;
+}
+@media screen and (min-width: 1280px) {
+  .comment__container {
+    width: 48%;
+    margin-bottom: 0.5rem;
+  }
+}
 
 .comment__content {
-  width: 80%;
+  width: 85%;
 }
 
 .comment__content-top {

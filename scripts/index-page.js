@@ -25,7 +25,7 @@ let commentArray = [
     },
 ];
 
-// here I'm defining the funtion for displaying a comment
+// here I'm defining the function for displaying a comment
 // start at the beginning of the commentArray, loop through as long as there are comments
 let displayComment = () => {
     for (let i = 0; i < commentArray.length; i++) {

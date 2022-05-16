@@ -100,7 +100,9 @@ html, body {
     }
     @include desktop {
         background-position: top;
-        height: 45rem;
+        height: 42rem;
+        justify-content: center;
+        position: relative;
     }
     &__subtitle {
         margin: 1rem 0 0 1rem;
@@ -109,10 +111,11 @@ html, body {
         font-size: 1rem;
         @include tablet {
           @include tab-desk-h3;
-          margin-left: 2rem; 
+          margin: 2rem 0 0 2rem; 
         }       
         @include desktop {
             padding-left: 3.5rem;
+            margin-bottom: 1rem;   
         }
     }
     &__title {
@@ -126,16 +129,25 @@ html, body {
         }       
         @include desktop {
             padding-left: 3.5rem;
+            width: 38%;
         }
     }
-    // these styles don't seem quite right - where is "preview"?
     &__embed {
         margin: 0 0 0 1rem;
         max-width: 90%;
-        max-height: 45%;
+        max-height: 32%;
         @include tablet {
-            max-width: 60%;
+            max-width: 54%;
             margin: 2rem;
+            max-height: 30%;
+        }
+        @include desktop {
+            max-width: 35%;
+            max-height: 22%;
+            align-self: flex-end;
+            position: absolute;
+            right: 6rem;
+            top: 16rem;
         }
     }
 }
@@ -143,37 +155,50 @@ html, body {
 // SHOWS SECTION
 .shows {
     // margin: 2rem 1rem 1rem 1rem;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
+    color: $primary-dark;
+    @include tablet {
+        margin-bottom: 1.25rem;
+    }
+    @include desktop {
+        width: 70%;
+        margin-left: 18rem;
+        position: relative;
+    }
     &__title {
     font-weight: 600;
     margin: 2rem 0 0.25rem 1rem;
     @include tablet {
-        margin: 2rem 0 0.25rem 2rem;
+        margin: 2rem 0 1rem 2rem;
+        @include tab-desk-h2;
         }
+    @include desktop {
+        position: relative;
+        left: -12rem;
+        top: 3.5rem;
+        margin-top: 0;
     }
+    }
+
 // the grey subheaders for show info category that show up after 767px
     @include tablet {
     &__categories-wrapper {
-        border: 1px solid red;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         width: 34rem;
-        margin-left: 2rem;
+        margin-left: 1rem;
+        padding: 0 1rem;
     }
         &__categories {
         @include subhead-caps;
         font-weight: 600;
-        border: 2px solid blue;
         width: 8rem;
-        margin: 1rem 2rem 1rem 0rem;
+        margin: 1rem 2rem 0 0rem;
         } 
     }
-    
     @include mobile {
         &__categories-wrapper {
             display: none;
@@ -184,7 +209,6 @@ html, body {
     }
     &__event {
         border-bottom: 1px solid $secondary-med;
-        border: 2px solid turquoise;
         margin: 1rem;
         display: flex;
         flex-direction: column;
@@ -192,8 +216,15 @@ html, body {
             flex-direction: row;
             justify-content: space-between;
             width: 92%;
-            margin: 1rem 1rem 1rem 2rem;
+            margin: 1rem 1rem 1rem 1rem;
+            padding: 0 1rem;
         }
+        @include desktop {
+            @include tab-desk-p;
+            padding: 0 1.5rem;
+            
+        }
+        
         &:hover {
             background-color: $secondary-light;
         }
@@ -206,7 +237,6 @@ html, body {
     }
 }
 .details {
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     @include tablet {
@@ -216,41 +246,34 @@ html, body {
         width: 34rem;
         margin: 0;
     }
-
     &__head {
         @include subhead-caps;
         font-weight: 600;
         margin: 0;
-        border: 1px solid blue;
         @include tablet {
             display: none;
-        }
-        
+        }      
     }
-
     &__body {
         @include mob-p;
         margin: 0rem 0 1rem 0;
-        border: 1px solid green;
         @include tablet {
             width: 8rem;
-            margin: 1rem 2rem 1rem 0rem;
+            margin: 0 2rem 1rem 0rem;
         }
         &--bold {
             font-weight: 600;
         }
     }
-
     &__button {
         @include button;
         margin: .5rem 0 1rem 0;
         @include tablet {
             padding: .5rem 1.5rem;
-            margin: 1rem 0;
+            margin: 0 0 1rem 0;
         }
     }
 }
-
     
 // FOOTER
 .footer {
@@ -259,7 +282,7 @@ html, body {
     color: $primary-light;
     height: 39rem;
     @include tablet {
-        padding: 1.5rem;
+        padding: 2rem;
         position: relative;
         height: 21rem;
         display: flex;
