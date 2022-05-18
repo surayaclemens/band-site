@@ -1,36 +1,42 @@
+const showsURL = 'https://project-1-api.herokuapp.com/shows?api_key=5d6f2ec7-e2a3-4c9d-87a5-128edda8a24a';
+axios.get(showsURL)
+    .then(result => {
+        let newShowsArray = result.data;
+   
+
 // creating array of show info objects
-let showsArray = [
-    {
-        date: "Mon Sept 06 2021",
-        venue: "Ronald Lane", 
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Tues Sept 21 2021",
-        venue: "Pier 3 East", 
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Fri Oct 15 2021",
-        venue: "View Lounge", 
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Sat Nov 06 2021",
-        venue: "Hyatt Agency", 
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Fri Nov 26 2021",
-        venue: "Moscow Center", 
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Wed Dec 15 2021",
-        venue: "Press Club", 
-        location: "San Francisco, CA"
-    },
-];
+// let showsArray = [
+//     {
+//         date: "Mon Sept 06 2021",
+//         venue: "Ronald Lane", 
+//         location: "San Francisco, CA"
+//     },
+//     {
+//         date: "Tues Sept 21 2021",
+//         venue: "Pier 3 East", 
+//         location: "San Francisco, CA"
+//     },
+//     {
+//         date: "Fri Oct 15 2021",
+//         venue: "View Lounge", 
+//         location: "San Francisco, CA"
+//     },
+//     {
+//         date: "Sat Nov 06 2021",
+//         venue: "Hyatt Agency", 
+//         location: "San Francisco, CA"
+//     },
+//     {
+//         date: "Fri Nov 26 2021",
+//         venue: "Moscow Center", 
+//         location: "San Francisco, CA"
+//     },
+//     {
+//         date: "Wed Dec 15 2021",
+//         venue: "Press Club", 
+//         location: "San Francisco, CA"
+//     },
+// ];
 
 
 // making js variable for body to attach shows section to
@@ -122,17 +128,21 @@ displayShow();
 
 // adding click listener for active showEvent
 let showEvent = document.querySelectorAll(".shows__event");
-console.log (showEvent);
+// console.log (showEvent);
 
-for (let i = 0; i < showEvent.length; i++) {
-    showEvent[i].addEventListener ('click', (changeBackground) => {
+for (let i = 0; i < newShowsArray.length; i++) {
+    newShowsArray[i].addEventListener ('click', (changeBackground) => {
         changeBackground.target.classList.add("shows__event--active");
         });
 
-        for (let j = 0; j < showEvent.length; j++) {
-            showEvent[j].addEventListener ('click', (changeBackground) => {
-                showEvent[i].classList.remove("shows__event--active");
+        for (let j = 0; j < newShowsArray.length; j++) {
+            newShowsArray[j].addEventListener ('click', (changeBackground) => {
+                newShowsArray[i].classList.remove("shows__event--active");
                 changeBackground.target.classList.add("shows__event--active")
             });
         }
 }
+})
+ .catch(error => {
+        alert("Looks like an error");
+ });
