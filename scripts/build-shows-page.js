@@ -1,45 +1,12 @@
-const showsURL = 'https://project-1-api.herokuapp.com/shows?api_key=5d6f2ec7-e2a3-4c9d-87a5-128edda8a24a';
+let showsArray = []
+
+const showsURL = 'https://project-1-api.herokuapp.com/showdates?api_key=5d6f2ec7-e2a3-4c9d-87a5-128edda8a24a';
 axios.get(showsURL)
-    .then(result => {
-        let newShowsArray = result.data;
-   
+        .then(result => {
+        let showsArray = result.data;
+        console.log(showsArray);
 
-// creating array of show info objects
-// let showsArray = [
-//     {
-//         date: "Mon Sept 06 2021",
-//         venue: "Ronald Lane", 
-//         location: "San Francisco, CA"
-//     },
-//     {
-//         date: "Tues Sept 21 2021",
-//         venue: "Pier 3 East", 
-//         location: "San Francisco, CA"
-//     },
-//     {
-//         date: "Fri Oct 15 2021",
-//         venue: "View Lounge", 
-//         location: "San Francisco, CA"
-//     },
-//     {
-//         date: "Sat Nov 06 2021",
-//         venue: "Hyatt Agency", 
-//         location: "San Francisco, CA"
-//     },
-//     {
-//         date: "Fri Nov 26 2021",
-//         venue: "Moscow Center", 
-//         location: "San Francisco, CA"
-//     },
-//     {
-//         date: "Wed Dec 15 2021",
-//         venue: "Press Club", 
-//         location: "San Francisco, CA"
-//     },
-// ];
-
-
-// making js variable for body to attach shows section to
+// // making js variable for body to attach shows section to
 let main = document.querySelector('main');
 
 // create section, call it shows, append it to body
@@ -91,24 +58,30 @@ let details = document.createElement("div");
         detailHeadDate.classList.add("details__head");
         detailHeadDate.innerText="Date";
         details.appendChild(detailHeadDate);
+
     let detailBodyDate = document.createElement("p");
         detailBodyDate.classList.add("details__body", "details__body--bold");
-        detailBodyDate.innerText=showsArray[i].date;
+        // formatting the date
+            let eventTime = showsArray[i].date;
+            let eventDate = new Date(eventTime*1).toDateString();
+        detailBodyDate.innerText=eventDate;
         details.appendChild(detailBodyDate);
-    
+
     let detailHeadVenue = document.createElement("p");
         detailHeadVenue.classList.add("details__head");
         detailHeadVenue.innerText="Venue";
         details.appendChild(detailHeadVenue);
+
     let detailBodyVenue = document.createElement("p");
         detailBodyVenue.classList.add("details__body");
-        detailBodyVenue.innerText=showsArray[i].venue;
+        detailBodyVenue.innerText=showsArray[i].place;
         details.appendChild(detailBodyVenue);
     
     let detailHeadLocation = document.createElement("p");
         detailHeadLocation.classList.add("details__head");
         detailHeadLocation.innerText="Location";
         details.appendChild(detailHeadLocation);
+
     let detailBodyLocation = document.createElement("p");
         detailBodyLocation.classList.add("details__body");
         detailBodyLocation.innerText=showsArray[i].location;
@@ -125,24 +98,27 @@ let detailsButton = document.createElement("button");
 // INVOKE THE LOOP TO DISPLAY SHOW INFO ON PAGE
 displayShow();
 
+})
+.catch(error => {
+    alert("Looks like an error");
+});
+
 
 // adding click listener for active showEvent
 let showEvent = document.querySelectorAll(".shows__event");
 // console.log (showEvent);
 
-for (let i = 0; i < newShowsArray.length; i++) {
-    newShowsArray[i].addEventListener ('click', (changeBackground) => {
+for (let i = 0; i < showsArray.length; i++) {
+    showsArray[i].addEventListener ('click', (changeBackground) => {
         changeBackground.target.classList.add("shows__event--active");
         });
 
-        for (let j = 0; j < newShowsArray.length; j++) {
-            newShowsArray[j].addEventListener ('click', (changeBackground) => {
-                newShowsArray[i].classList.remove("shows__event--active");
+        for (let j = 0; j < showsArray.length; j++) {
+            showsArray[j].addEventListener ('click', (changeBackground) => {
+                showsArray[i].classList.remove("shows__event--active");
                 changeBackground.target.classList.add("shows__event--active")
             });
         }
 }
-})
- .catch(error => {
-        alert("Looks like an error");
- });
+
+
