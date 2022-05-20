@@ -13,8 +13,8 @@ function getComments() {
     axios.get(commentsURL)
         .then(result => {
             let comments = result.data;
+            comments.sort((a,b) => b.timestamp - a.timestamp);
             displayComment(comments);
-            console.log(result.data);
         })
         .catch(error => {
             console.log(error);
@@ -22,8 +22,10 @@ function getComments() {
 }
 
 //function for displaying a comment in the browser, which will be passed an array of data to perform on
-let displayComment = (dataArray) => {
-    for (let i = 0; i < dataArray.length; i++) {
+let displayComment = (commentList) => {
+    for (let i = 0; i < commentList.length; i++) {
+
+        
 // making the div that holds a single comment
     let singleCommentContainer = document.createElement("div");
     singleCommentContainer.classList.add("comment__container");
@@ -47,14 +49,14 @@ let displayComment = (dataArray) => {
 // making the name of the commenter
     let commenterName = document.createElement("p");
     commenterName.classList.add("commenter__name");
-    commenterName.innerText = dataArray[i].name;
+    commenterName.innerText = commentList[i].name;
     commentContentTop.appendChild(commenterName);
 
 // making the date stamp
     let date = document.createElement("p");
     date.classList.add("comment__date");   
     // formatting the date
-        let commentTime = dataArray[i].timestamp;
+        let commentTime = commentList[i].timestamp;
         let commentDate = new Date(commentTime);
         let commentDay = commentDate.getDate ();
         let commentMonth = commentDate.getMonth ()+1;
@@ -66,7 +68,7 @@ let displayComment = (dataArray) => {
 // make the comment text
     let commentText = document.createElement("p");
     commentText.classList.add("comment__text");
-    commentText.innerText = dataArray[i].comment;
+    commentText.innerText = commentList[i].comment;
     commentContent.appendChild(commentText);
     }
 }
@@ -76,7 +78,7 @@ function postComments(newCommentObject) {
     axios.post(commentsURL, newCommentObject)
             .then((result) => {
                 form.reset();
-                getComments();
+                getComments(); 
             })
             .catch((error) => {
                 console.log(error);
@@ -95,10 +97,18 @@ form.addEventListener('submit', (ev) => {
         name: ev.target.name.value,
         comment: ev.target.comment.value, 
     }
-
-// 
+// set comments wrapper to empty so they don't duplicate each time
     commentsWrapper.innerText = null;
+
+// invoke the function to post all new comments
     postComments(newCommentObject);
 
-// these guys close off the event listener 
+    console.log(newCommentObject.timestamp);
+    
 });
+
+
+
+
+
+
