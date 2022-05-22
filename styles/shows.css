@@ -236,6 +236,14 @@ html, body {
     margin-top: 0;
   }
 }
+@media screen and (max-width: 767px) {
+  .shows__categories-wrapper {
+    display: none;
+  }
+  .shows__categories {
+    display: none;
+  }
+}
 @media screen and (min-width: 768px) {
   .shows__categories-wrapper {
     display: flex;
@@ -256,12 +264,23 @@ html, body {
     margin: 1rem 2rem 0 0rem;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 1280px) {
   .shows__categories-wrapper {
-    display: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40rem;
+    margin-left: 4rem;
   }
   .shows__categories {
-    display: none;
+    font-size: 0.7rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #afafaf;
+    font-weight: 600;
+    width: 16rem;
+    margin: 1rem 0rem 0 0rem;
   }
 }
 .shows__event {
@@ -275,8 +294,8 @@ html, body {
     flex-direction: row;
     justify-content: space-between;
     width: 92%;
-    margin: 1rem 1rem 1rem 1rem;
-    padding: 0 1rem;
+    margin: 0rem 1rem 1rem 1rem;
+    padding: 0 1rem 1rem 1rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -284,16 +303,18 @@ html, body {
     font-size: 0.9rem;
     font-weight: 400;
     line-height: 1.35rem;
-    padding: 0 1.5rem;
+    margin: 0 0 0 4rem;
+    width: 50rem;
+    padding: 1rem;
+  }
+  .shows__event:nth-child(3) {
+    margin-top: 1rem;
   }
 }
 .shows__event:hover {
   background-color: #fafafa;
 }
 .shows__event--active {
-  background-color: #e1e1e1;
-}
-.shows__event--active:hover {
   background-color: #e1e1e1;
 }
 
@@ -308,6 +329,12 @@ html, body {
     align-items: center;
     width: 34rem;
     margin: 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .details {
+    width: 40rem;
+    justify-content: flex-start;
   }
 }
 .details__head {
@@ -332,11 +359,17 @@ html, body {
 @media screen and (min-width: 768px) {
   .details__body {
     width: 8rem;
-    margin: 0 2rem 1rem 0rem;
+    margin: 0 2rem 0 0;
   }
 }
 .details__body--bold {
   font-weight: 600;
+}
+@media screen and (min-width: 1280px) {
+  .details__body {
+    width: 16rem;
+    margin: 0;
+  }
 }
 .details__button {
   color: white;
@@ -353,7 +386,7 @@ html, body {
 @media screen and (min-width: 768px) {
   .details__button {
     padding: 0.5rem 1.5rem;
-    margin: 0 0 1rem 0;
+    margin: 0;
   }
 }
 

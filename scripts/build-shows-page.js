@@ -4,7 +4,7 @@ const showsURL = 'https://project-1-api.herokuapp.com/showdates?api_key=5d6f2ec7
 axios.get(showsURL)
         .then(result => {
         let showsArray = result.data;
-        console.log(showsArray);
+        // console.log(showsArray);
 
 // // making js variable for body to attach shows section to
 let main = document.querySelector('main');
@@ -62,10 +62,13 @@ let details = document.createElement("div");
     let detailBodyDate = document.createElement("p");
         detailBodyDate.classList.add("details__body", "details__body--bold");
         // formatting the date
-            let eventTime = showsArray[i].date;
-            let eventDate = new Date(eventTime*1).toDateString();
-        detailBodyDate.innerText=eventDate;
-        details.appendChild(detailBodyDate);
+            let unixTime = showsArray[i].date;
+            let eventDate = (parseInt(unixTime));
+            // console.log(eventDate);
+            // console.log(typeof eventDate);
+            let formattedDate = new Date(eventDate).toDateString();
+            detailBodyDate.innerText=formattedDate;
+            details.appendChild(detailBodyDate);
 
     let detailHeadVenue = document.createElement("p");
         detailHeadVenue.classList.add("details__head");
@@ -104,21 +107,10 @@ displayShow();
 });
 
 
-// adding click listener for active showEvent
-let showEvent = document.querySelectorAll(".shows__event");
-// console.log (showEvent);
-
-for (let i = 0; i < showsArray.length; i++) {
-    showsArray[i].addEventListener ('click', (changeBackground) => {
-        changeBackground.target.classList.add("shows__event--active");
-        });
-
-        for (let j = 0; j < showsArray.length; j++) {
-            showsArray[j].addEventListener ('click', (changeBackground) => {
-                showsArray[i].classList.remove("shows__event--active");
-                changeBackground.target.classList.add("shows__event--active")
-            });
-        }
+// trying unsuccessfully to add click event listener to show event
+const clickedShow = document.querySelectorAll(".shows__event");
+console.log(clickedShow);
+clickedShow[i].addEventListener("click", changeBackground);
+function changeBackground() {
+    clickedShow[i].classList.add("shows__event--active");
 }
-
-
